@@ -1,8 +1,21 @@
-const Card = ({ title, value }) => {
+const Card = ({ isDark, name, balance, number }) => {
   return (
-    <div className="bg-blue-500 text-white p-4 rounded shadow">
-      <p className="text-sm opacity-80">{title}</p>
-      <h2 className="text-2xl font-bold">{value}</h2>
+    <div
+      className={`w-full p-5 rounded-2xl shadow ${
+        isDark
+          ? "bg-gradient-to-r from-blue-600 to-indigo-700 text-white"
+          : "bg-white"
+      }`}
+    >
+      <p className={`text-sm ${!isDark && "text-gray-500"}`}>Balance</p>
+      <h3 className="text-xl font-bold">{balance}</h3>
+
+      <div className="mt-4">
+        <p className="text-sm">{name}</p>
+        <p className={`text-xs ${!isDark && "text-gray-500"}`}>
+          {number}
+        </p>
+      </div>
     </div>
   );
 };
